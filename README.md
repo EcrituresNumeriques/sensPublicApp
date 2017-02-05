@@ -10,4 +10,4 @@ Après avoir installé [SynopsX](http://synopsx.github.io), créer un lien symbo
   ln -s User/username/sensPublicWebapp/ User/username/synopsx/workspace/sp
 ```
 
-Ce programme informatique est publié sous [Licence GNU GPL](LICENCE.md).
+Ce programme informatique est publié sous [Licence GNU GPL](LICENSE.md).
