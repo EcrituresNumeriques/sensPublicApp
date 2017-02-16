@@ -29,7 +29,7 @@ declare default function namespace 'sp.sp' ;
  :
  :)
 declare 
-  %restxq:path('/')
+  %restxq:path('/sp')
 function index() {
   <rest:response>
     <http:response status="303" message="See Other">
@@ -44,7 +44,7 @@ function index() {
  : @return une représentation html de la page d’accueil
  :)
 declare 
-  %restxq:path('/home')
+  %restxq:path('/sp/home')
   %rest:produces('text/html')
   %output:method('html')
   %output:html-version('5.0')
@@ -72,7 +72,7 @@ function blogHome() {
  : @return article avec l’identifiant ou un une séquence vide
  :)
 declare 
-  %restxq:path('/articles/{$articleId}')
+  %restxq:path('/sp/articles/{$articleId}')
 function articleById($articleId) {
   let $queryParams := map {
     'project' : 'sp',
@@ -98,7 +98,7 @@ function articleById($articleId) {
  : @discuss le nb d’articles ou l’ordre de tri (titre, auteur, date) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/articles/{$date}')
+  %restxq:path('/sp/articles/{$date}')
 function articleByDate($date) {
   let $queryParams := map {
     'project' : 'sp',
@@ -124,7 +124,7 @@ function articleByDate($date) {
  : @discuss le nb d’articles ou l’ordre de tri (articleId, titre, auteur, date, avec ou sans resume) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/types/{$type}')
+  %restxq:path('/sp/types/{$type}')
 function articleByType($type) {
   let $queryParams := map {
     'project' : 'sp',
@@ -149,7 +149,7 @@ function articleByType($type) {
  : @discuss le nb de dossiers ou l’ordre de tri dossierId, dossierTitle, articlesNb, editeur(s)) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/dossiers')
+  %restxq:path('/sp/dossiers')
 function dossiers() {
   let $queryParams := map {
     'project' : 'sp',
@@ -175,7 +175,7 @@ function dossiers() {
  : @discuss le nb de dossiers ou l’ordre de tri dossierId, dossierTitle, articlesNb, editeur(s)) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/dossiers/{$theme}')
+  %restxq:path('/sp/dossiers/{$theme}')
 function dossiersByTheme($theme) {
   let $queryParams := map {
     'project' : 'sp',
@@ -200,7 +200,7 @@ function dossiersByTheme($theme) {
  : @discuss (avec leurs articles ?)
  :)
 declare 
-  %restxq:path('/auteurs')
+  %restxq:path('/sp/auteurs')
 function auteurs() {
   let $queryParams := map {
     'project' : 'sp',
@@ -227,7 +227,7 @@ function auteurs() {
  : @discuss le nb de dossiers ou l’ordre de tri articleId, titre article, auteur, date) doivent-ils être traités en paramètres ? 
  :)
 declare 
-  %restxq:path('/auteurs/{$auteurId}')
+  %restxq:path('/sp/auteurs/{$auteurId}')
 function autheurById($auteurId) {
   let $queryParams := map {
     'project' : 'sp',
