@@ -20,7 +20,10 @@ import module namespace restxq = 'http://exquery.org/ns/restxq' ;
 import module namespace G = 'synopsx.globals' at '../../../globals.xqm' ;
 import module namespace synopsx.models.synopsx= 'synopsx.models.synopsx' at '../../../models/synopsx.xqm' ;
 
+import module namespace sp.models.erudit = "sp.models.erudit" at '../models/erudit.xqm' ;
+
 import module namespace synopsx.mappings.htmlWrapping = 'synopsx.mappings.htmlWrapping' at '../../../mappings/htmlWrapping.xqm' ;
+import module namespace sp.mappings.htmlWrapping = 'sp.mappings.htmlWrapping' at '../mappings/htmlWrapping.xqm' ;
 
 declare default function namespace 'sp.sp' ;
 
@@ -62,7 +65,7 @@ function blogHome() {
     'pattern' : 'pattern.xhtml',
     'xquery' : 'erudit2html'
     }
-    return synopsx.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams)
+    return sp.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams)
   }; 
  
 (:~ 
