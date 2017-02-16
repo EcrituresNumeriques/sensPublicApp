@@ -21,7 +21,7 @@
 
 Avant d'être une revue scientifique, Sens Public s'est toujours positionnée comme un réseau de personnes. Cette particularité demeure un objectif central pour la refonte du site : connecter des personnes et ouvrir un espace public de discussion. La revue est donc l'espace d'articulation entre des énoncés, une communauté et leur conversation ; un espace où du _sens public_ peut justement se produire.
 
-Le site de la revue doit se déployer selon 4 axes :
+Le site de la revue doit se déployer selon 5 axes :
 
   1. Lire
   2. Explorer
@@ -29,7 +29,7 @@ Le site de la revue doit se déployer selon 4 axes :
   4. Collectionner
   5. Connecter
 
-Les 4 axes fonctionnent ensemble et sont interdépendants.
+Les 5 axes fonctionnent ensemble et sont interdépendants.
 
 ## Axe 1 : Lire
 Le premier axe «Lire» repose sur les textes eux-mêmes. Il consiste à rendre le corpus des articles de la revue consultable sous différents formats. Les articles seront stockés au format XML, exposés avec leurs métadonnées par le biais du framework Synopsx, permettant de construire une API sur un corpus de ressources XML.
@@ -70,12 +70,13 @@ Catégories (même pas un premier jet):
     possibilité d'aller chercher la source parmis des référentiels (DOI, Isidore, ...)
   * intégrer une partie bibliographique + aspects autorité.
 
-commentaire Gérard :  
-> C'est l'idée de lien. on ouvre à la bibliothèque, à l'archive. Dimension référentiel et associatif.
+
+> C'est l'idée de lien. on ouvre à la bibliothèque, à l'archive. Dimension référentielle et associative.  
+> (commentaire Gérard)  
 
 ## Axe 4 : Collectionner
 
-Cet axe proposera au lectorat de créer des collections d'élements qui pourront être soit des fragments d'articles, soit des annotations (propres ou appartenant à d'autres utilisateurs). Cet axe fait se croiser deux contributions théoriques, celle d'_anthologie_ de Milad Douhei et celle de _cristal de connaissance_, _«crystal of knowledge»_ de JC. Guédon[^guedon].
+Cet axe proposera au lectorat de créer des collections d'élements qui pourront être soit des fragments d'articles, soit des annotations (propres ou appartenant à d'autres utilisateurs). Cet axe fait se croiser deux contributions théoriques, celle d'_anthologie_ de Milad Doueihi et celle de _cristal de connaissance_, _«crystal of knowledge»_ de JC. Guédon[^guedon].
 
 [^guedon]: Stern, Niels, Jean-Claude Guédon et Thomas Wiben Jensen. « Crystals of Knowledge Production. An Intercontinental Conversation about Open Science and the Humanities ». Nordic Perspectives on Open Science 1, no 0 (23 octobre 2015), 1‑24. doi:10.7557/11.3619.
 
