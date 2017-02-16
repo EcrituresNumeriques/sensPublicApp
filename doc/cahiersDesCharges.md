@@ -54,6 +54,8 @@ Cet axe est donc une condition de possibilité de l'axe «Converser» car préal
 Cet axe repose à nouveau sur la richesse sémantique des métadonnées de l'article (ou des annotations), par exemple de la bibliographie, permettant d'identifier des individus et d'effectuer des requêtes sur différents services (Orcid, Zotero, Twitter, GG Scholar), et finalement de générer semi-automatiquement des notifications aux différents acteurs en présence (auteur de l'article, auteurs cités, lecteurs).
 
 ---
+
+
 ## Spécifications
 
 ### Principe pour l'inter-connexion
