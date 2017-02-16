@@ -73,7 +73,7 @@ function blogHome() {
  :)
 declare 
   %restxq:path('/articles/{$articleId}')
-function articleById() {
+function articleById($articleId) {
   let $queryParams := map {
     'project' : 'sp',
     'dbName' : 'sp',
@@ -99,7 +99,7 @@ function articleById() {
  :)
 declare 
   %restxq:path('/articles/{$date}')
-function articleByDate() {
+function articleByDate($date) {
   let $queryParams := map {
     'project' : 'sp',
     'dbName' : 'sp',
@@ -125,7 +125,7 @@ function articleByDate() {
  :)
 declare 
   %restxq:path('/types/{$type}')
-function articleByType() {
+function articleByType($type) {
   let $queryParams := map {
     'project' : 'sp',
     'dbName' : 'sp',
@@ -176,7 +176,7 @@ function dossiers() {
  :)
 declare 
   %restxq:path('/dossiers/{$theme}')
-function dossiersByTheme() {
+function dossiersByTheme($theme) {
   let $queryParams := map {
     'project' : 'sp',
     'dbName' : 'sp',
@@ -228,7 +228,7 @@ function auteurs() {
  :)
 declare 
   %restxq:path('/auteurs/{$auteurId}')
-function autheurById() {
+function autheurById($auteurId) {
   let $queryParams := map {
     'project' : 'sp',
     'dbName' : 'sp',
