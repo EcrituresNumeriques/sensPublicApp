@@ -24,7 +24,7 @@ declare default function namespace 'sp.models.erudit' ;
 
 (:~
  : ~:~:~:~:~:~:~:~:~
- : tei blog
+ : 
  : ~:~:~:~:~:~:~:~:~
  :)
  
@@ -49,3 +49,53 @@ declare function getArticles($queryParams as map(*)) as map(*) {
     'content' : $content
     }
 };
+
+declare function getArticleById($queryParams as map(*)) as map(*) {
+  let $articles := synopsx.models.synopsx:getDb($queryParams)
+  return map{
+    '' : ''
+  }
+};
+
+declare function getArticlesByDate($queryParams as map(*)) as map(*) {
+  let $articles := synopsx.models.synopsx:getDb($queryParams)
+  return map{
+    '' : ''
+  }
+};
+
+declare function getArticlesByType($queryParams as map(*)) as map(*) {
+  let $articles := synopsx.models.synopsx:getDb($queryParams)
+  return map{
+    '' : ''
+  }
+};
+
+declare function getDossiers($queryParams as map(*)) as map(*) {
+  let $articles := synopsx.models.synopsx:getDb($queryParams)
+  return map{
+    '' : ''
+  }
+};
+
+declare function getDossiersByThemes($queryParams as map(*)) as map(*) {
+  let $articles := synopsx.models.synopsx:getDb($queryParams)
+  return map{
+    '' : ''
+  }
+};
+
+declare function getAuteurs($queryParams as map(*)) as map(*) {
+  let $articles := synopsx.models.synopsx:getDb($queryParams)
+  return map{
+    '' : ''
+  }
+};
+
+declare function getAuteurById($queryParams as map(*)) as map(*) {
+  let $articles := synopsx.models.synopsx:getDb($queryParams)
+  return map{
+    '' : ''
+  }
+};
+

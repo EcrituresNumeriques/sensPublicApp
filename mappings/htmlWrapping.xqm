@@ -26,9 +26,9 @@ module namespace sp.mappings.htmlWrapping = 'sp.mappings.htmlWrapping' ;
  :)
 
 import module namespace G = "synopsx.globals" at '../../../globals.xqm' ;
-import module namespace synopsx.models.synopsx = 'synopsx.models.synopsx' at '../models/synopsx.xqm' ; 
+import module namespace synopsx.models.synopsx = 'synopsx.models.synopsx' at '../../../models/synopsx.xqm' ; 
 
-import module namespace sp.mappings.sp2html = 'sp.mappings.sp2html' at 'sp2html.xqm' ; 
+import module namespace sp.mappings.erudit2html = 'sp.mappings.erudit2html' at 'erudit2html.xqm' ; 
 
 declare namespace html = 'http://www.w3.org/1999/xhtml' ;
 
@@ -162,7 +162,7 @@ declare function render($queryParams as map(*), $outputParams as map(*), $value 
     }
   return 
     if ($xquery) 
-      then synopsx.mappings.tei2html:entry($value, $options)
+      then sp.mappings.erudit2html:entry($value, $options)
     else if ($xsl) 
       then for $node in $value
            return xslt:transform($node, synopsx.models.synopsx:getXsltPath($queryParams, $xsl))
