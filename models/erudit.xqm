@@ -29,19 +29,19 @@ declare default function namespace 'sp.models.erudit' ;
  :)
  
 (:~
- : this function get the blog home
+ : this function get an Article list
  :
  : @param $queryParams the request params sent by restxq
  : @return a map with meta and content
  :)
-declare function getArticleList($queryParams as map(*)) as map(*) {
+declare function getArticles($queryParams as map(*)) as map(*) {
   let $articles := synopsx.models.synopsx:getDb($queryParams)//erudit:article
   let $meta := map{
-    'title' : 'Liste article', 
+    'title' : 'Liste d’articles', 
     'keywords' : for $article in $articles return $articles//erudit:grTheme/erudit:theme/text()
     }
   let $content := for $article in $articles return map {
-    'title' : '',
+    'title' : 'Titre',
     'article' : $article
     }
   return  map{
@@ -49,4 +49,3 @@ declare function getArticleList($queryParams as map(*)) as map(*) {
     'content' : $content
     }
 };
-
