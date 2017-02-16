@@ -76,7 +76,7 @@ function blogHome() {
  :)
 declare 
   %restxq:path('/sp/articles/{$articleId}')
-function articleById($articleId) {
+function articleById($articleId as xs:string) {
   let $queryParams := map {
     'project' : 'sp',
     'dbName' : 'sp',
