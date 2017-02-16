@@ -1,3 +1,20 @@
+
+<!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Intention](#intention)
+- [Axe 1 : Lire](#axe-1-lire)
+- [Axe 2 : Explorer](#axe-2-explorer)
+- [Axe 3 : Converser / discuter / critiquer](#axe-3-converser-discuter-critiquer)
+- [Axe 4 : Collectionner](#axe-4-collectionner)
+- [Axe 5 : Connecter](#axe-5-connecter)
+- [Spécifications](#spcifications)
+- [Meta-navigation](#meta-navigation)
+- [HOME](#home)
+- [Pages](#pages)
+
+<!-- /TOC -->
+
+
 # Cahiers des charges Sens Public (revue scientifique en ligne)
 
 ## Intention
@@ -9,15 +26,15 @@ Le site de la revue doit se déployer selon 4 axes :
   1. Lire
   2. Explorer
   3. Discuter
-  4. Connecter
-  5. Collectionner
+  4. Collectionner
+  5. Connecter
 
 Les 4 axes fonctionnent ensemble et sont interdépendants.
 
-## Lire
+## Axe 1 : Lire
 Le premier axe «Lire» repose sur les textes eux-mêmes. Il consiste à rendre le corpus des articles de la revue consultable sous différents formats. Les articles seront stockés au format XML, exposés avec leurs métadonnées par le biais du framework Synopsx, permettant de construire une API sur un corpus de ressources XML.
 
-## Explorer
+## Axe 2 : Explorer
 Le second axe «Explorer» repose sur les métadonnées des ressources, également présentes dans les XML des articles. Il s'agit de proposer des navigations possibles, au sein du corpus et vers l'extérieur, selon plusieurs parcours :
 1. la méta-navigation de la revue :
   * les types de contenus: essais, chroniques, dossiers, etc. voir [Types de contenus](#types-de-contenu))
@@ -26,35 +43,56 @@ Le second axe «Explorer» repose sur les métadonnées des ressources, égaleme
   * ...
 2. des rebonds internes (d'article à article) à partir des métadonnées de l'article : auteur, keyword, ...
 3. des rebonds externes en exploitant la richesse sémantique des articles liée à diverses autorités. Ces éléments doivent permettre d'effectuer des requêtes précises dans des moteurs spécialisés, notamment rechercheisidore.fr.
+4. des rebonds internes à travers les annotations (voir axe 3), les collections (voir axe 4) et les connexions (voir axe 5)
 
-## Converser / discuter / critiquer
-Le troisième axe «Converser» se base sur l'outil d'annotation Hypothes.is[^hypotesis], lui-même basé sur la librairie Annotator.js. Outre un accès ergonomique et intégré de l'outil d'annotation au fil de la lecture d'un texte, nous souhaitons pouvoir renverser le paradigme de navigation de la revue scientifique, basé traditionnellement sur les articles, en proposant comme point d'entrée principal la conversation. L'API d'Hypothes.is nous permet en effet d'exposer les annotations avec toutes leurs métadonnées (fragment et URI de la source annotée, auteur de l'annotation, mots-clé, commentaire, date/heure, etc.). On peut d'ailleurs envisager de catégoriser les annotations et la conversation sur le mode de [polemictweet](http://polemictweet.com/).
+## Axe 3 : Converser / discuter / critiquer
+Le troisième axe «Converser» se base sur l'outil d'annotation Hypothes.is[^hypotesis], lui-même basé sur la librairie Annotator.js. Outre un accès ergonomique et intégré de l'outil d'annotation au fil de la lecture d'un texte, nous souhaitons pouvoir renverser le paradigme de navigation de la revue scientifique, basé traditionnellement sur les articles, en proposant comme point d'entrée principal la conversation. L'API d'Hypothes.is nous permet en effet d'exposer les annotations avec toutes leurs métadonnées (fragment et URI de la source annotée, auteur de l'annotation, mots-clé, commentaire, date/heure, etc.).
 
 Un effort particulier de conception et de présentation de cette conversation doit être apporté. Il faut prévoir à la fois une intégration fine et ergonomique des textes et de leur conversation, et à la fois la possibilité de changer de point de vue et d'adopter celui de la conversation. De cette manière, la conversation est susceptible de ne pas être accessoire aux textes, mais de devenir le point d'accroche de la communauté de lecteurs, de développer une pratique critique collective, ainsi que des dialogues inter-culturels (en considérant des passerelles linguistiques). La conversation et les articles peuvent alors constituer les deux faces d'une même pièce.
 
 [^hypotesis]: Il s'agit d'un outil d'annotation intra-textuel produisant des annotations indexées c'est-à-dire possédant une URI propre et requêtable via une API dédiée.
 
-Ajouter l'aspect herméneutique/critique
+Un des objectifs de cet axe «Discuter» est de susciter une démarche critique dans les pratiques d'annotations. Une piste à explorer pourrait être de catégoriser[^categoriser] les annotations et la conversation en général. Mais la dynamique critique, en tant que démarche d'appropriation, pourrait également se manifester dans l'axe «Collectionner».
 
-modéliser les connexions.. les annotations :
+[^categoriser]: sur le mode de [polemictweet](http://polemictweet.com/) où certains tags ou attributs de l'annotation appartiennent à un vocabulaire contrôlé permettant de qualifier la valeur critique d'une annotation.
+
+Un effort de modélisation de la conversation serait ici nécessaire :
+
+* identifier les primitives
+* définir des catégories
+* définir des scénarios d'annotation
+* définir des parcours de lecture dans les annotations.
+
+Catégories (même pas un premier jet):
   * d'accord/pas d'accord
-  * "ca me fait penser à" : associer. baser la discussion sur la connexion, pour que les deux s'alimentent.
-    * aller chercher la source
+  * "ca me fait penser à" : associer.
+    principe : baser la discussion sur la connexion, pour que les deux s'alimentent.
+    possibilité d'aller chercher la source parmis des référentiels (DOI, Isidore, ...)
   * intégrer une partie bibliographique + aspects autorité.
 
-C'est l'idée de lien. on ouvre à la bibliothèque, à l'archive. Dimension référentiel et associatif.
+commentaire Gérard :  
+> C'est l'idée de lien. on ouvre à la bibliothèque, à l'archive. Dimension référentiel et associatif.
 
-## Collectionner ?
+## Axe 4 : Collectionner
+
+Cet axe proposera au lectorat de créer des collections d'élements qui pourront être soit des fragments d'articles, soit des annotations (propres ou appartenant à d'autres utilisateurs). Cet axe fait se croiser deux contributions théoriques, celle d'_anthologie_ de Milad Douhei et celle de _cristal de connaissance_, _«crystal of knowledge»_ de JC. Guédon[^guedon].
+
+[^guedon]: Stern, Niels, Jean-Claude Guédon et Thomas Wiben Jensen. « Crystals of Knowledge Production. An Intercontinental Conversation about Open Science and the Humanities ». Nordic Perspectives on Open Science 1, no 0 (23 octobre 2015), 1‑24. doi:10.7557/11.3619.
+
+Si la collection ne relève pas de la production d'un texte nouveau, elle relève bien malgré tout d'une démarche critique dans la mesure où le lecteur construit sa propre interprétation d'un champs ou d'un concept, en y agrégeant des éléments de connaissances glânés au fil de ses lectures. C'est l'association de ces éléments qui est herméneutique, au sens où il construit du sens. On pourrait envisager que ces collections puissent être soit publiques, soit privées, selon la volonté du collectionneur.
+
+Une collection publique revient à un acte de publication par lequel le lecteur se fait éditeur de fragments en proposant un chemin de lecture propre.
 
 
-## Connecter
+## Axe 5 : Connecter
 Le quatrième axe «Connecter» consiste à favoriser la création d'un espace public en favorisant les connexions entre auteurs et lecteurs d'une part, mais aussi au sein de la communauté de lecteurs, et par extension avec les personnes impliquées indirectement (par voie bibliographique) dans les articles.
+
 Cet axe est donc une condition de possibilité de l'axe «Converser» car préalablement à la discussion scientifique, il notifie les uns et les autres des prises de position, des emprunts ou encore des citations, il suscite des intérêts et permet de les partager.
 
 Cet axe repose à nouveau sur la richesse sémantique des métadonnées de l'article (ou des annotations), par exemple de la bibliographie, permettant d'identifier des individus et d'effectuer des requêtes sur différents services (Orcid, Zotero, Twitter, GG Scholar), et finalement de générer semi-automatiquement des notifications aux différents acteurs en présence (auteur de l'article, auteurs cités, lecteurs).
 
----
 
+---
 
 ## Spécifications
 
