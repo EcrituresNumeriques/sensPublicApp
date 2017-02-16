@@ -25,11 +25,11 @@ import module namespace synopsx.mappings.htmlWrapping = 'synopsx.mappings.htmlWr
 declare default function namespace 'sp.sp' ;
 
 (:~
- : resource function for the home
+ : fonction ressource pour la racine
  :
  :)
 declare 
-  %restxq:path('/sp')
+  %restxq:path('/')
 function index() {
   <rest:response>
     <http:response status="303" message="See Other">
@@ -72,7 +72,7 @@ function blogHome() {
  : @return article avec l’identifiant ou un une séquence vide
  :)
 declare 
-  %restxq:path('/articles/{articleId}')
+  %restxq:path('/articles/{$articleId}')
 function articleById() {
   let $queryParams := map {
     'project' : 'sp',
@@ -98,7 +98,7 @@ function articleById() {
  : @discuss le nb d’articles ou l’ordre de tri (titre, auteur, date) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/articles/{date}')
+  %restxq:path('/articles/{$date}')
 function articleByDate() {
   let $queryParams := map {
     'project' : 'sp',
@@ -124,7 +124,7 @@ function articleByDate() {
  : @discuss le nb d’articles ou l’ordre de tri (articleId, titre, auteur, date, avec ou sans resume) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/types/{type}')
+  %restxq:path('/types/{$type}')
 function articleByType() {
   let $queryParams := map {
     'project' : 'sp',
@@ -175,7 +175,7 @@ function dossiers() {
  : @discuss le nb de dossiers ou l’ordre de tri dossierId, dossierTitle, articlesNb, editeur(s)) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/dossiers/{theme}')
+  %restxq:path('/dossiers/{$theme}')
 function dossiersByTheme() {
   let $queryParams := map {
     'project' : 'sp',
@@ -227,7 +227,7 @@ function auteurs() {
  : @discuss le nb de dossiers ou l’ordre de tri articleId, titre article, auteur, date) doivent-ils être traités en paramètres ? 
  :)
 declare 
-  %restxq:path('/auteurs/{auteurId}')
+  %restxq:path('/auteurs/{$auteurId}')
 function autheurById() {
   let $queryParams := map {
     'project' : 'sp',
