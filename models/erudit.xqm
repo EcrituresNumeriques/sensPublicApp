@@ -18,7 +18,8 @@ module namespace sp.models.erudit = 'sp.models.erudit' ;
 
 import module namespace synopsx.models.synopsx = 'synopsx.models.synopsx' at '../../../models/synopsx.xqm' ;
 
-declare namespace erudit = 'http://www.erudit-c.org/ns/1.0' ;
+(: declare namespace erudit = 'http://www.erudit-c.org/ns/1.0' ; :)
+declare namespace erudit = 'http://www.erudit.org/xsd/article' ;
 
 declare default function namespace 'sp.models.erudit' ;
 
@@ -38,14 +39,14 @@ declare function getArticles($queryParams as map(*)) as map(*) {
   let $articles := synopsx.models.synopsx:getDb($queryParams)//erudit:article
   let $meta := map{
     'title' : 'Liste d’articles', 
-    'keywords' : for $article in $articles return $articles//erudit:grTheme/erudit:theme/text()
+    'keywords' : $articles
     }
   let $content := for $article in $articles return map {
     'title' : 'Titre',
     'article' : $article
     }
   return  map{
-    'meta'    : $meta,
+    'meta'    : $articles,
     'content' : $content
     }
 };
