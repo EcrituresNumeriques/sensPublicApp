@@ -39,17 +39,19 @@ declare function getArticles($queryParams as map(*)) as map(*) {
   let $articles := synopsx.models.synopsx:getDb($queryParams)//erudit:article
   let $meta := map{
     'title' : 'Liste d’articles', 
-    'keywords' : $articles
+    'keywords' : $articles//erudit:liminaire/erudit:grmotcle/erudit:motcle/text()
     }
   let $content := for $article in $articles return map {
-    'title' : 'Titre',
+    'title' : $article//erudit:liminaire/erudit:grtitre/erudit:titre,
+    'authors' : $article//erudit:liminaire/erudit:grauteur,
     'article' : $article
     }
   return  map{
-    'meta'    : $articles,
+    'meta'    : $meta,
     'content' : $content
     }
 };
+
 
 declare function getArticleById($queryParams as map(*)) as map(*) {
   let $articles := synopsx.models.synopsx:getDb($queryParams)
@@ -86,7 +88,7 @@ declare function getDossiersByThemes($queryParams as map(*)) as map(*) {
   }
 };
 
-declare function getAuteurs($queryParams as map(*)) as map(*) {
+declare function getAuteursList($queryParams as map(*)) as map(*) {
   let $articles := synopsx.models.synopsx:getDb($queryParams)
   return map{
     '' : ''

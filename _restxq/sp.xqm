@@ -26,6 +26,8 @@ import module namespace sp.models.erudit = "sp.models.erudit" at '../models/erud
 import module namespace synopsx.mappings.htmlWrapping = 'synopsx.mappings.htmlWrapping' at '../../../mappings/htmlWrapping.xqm' ;
 import module namespace sp.mappings.htmlWrapping = 'sp.mappings.htmlWrapping' at '../mappings/htmlWrapping.xqm' ;
 
+import module namespace sp.mappings.erudit2json = 'sp.mappings.erudit2json' at '../mappings/erudit2json.xqm' ;
+
 declare default function namespace 'sp.sp' ;
 
 (:~
@@ -61,10 +63,10 @@ function blogHome() {
   let $outputParams := map {
     'layout' : 'layout.xhtml',
     'pattern' : 'pattern.xhtml',
-    'xquery' : 'erudit2html'
+    'jsonFormat' : 'jsonml'
     }
     (: return sp.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams):)
-    return $data
+    return sp.mappings.erudit2json:wrapper($queryParams, $data, $outputParams)
   }; 
  
 (:~ 
@@ -208,7 +210,7 @@ function auteurs() {
     'project' : 'sp',
     'dbName' : 'sp',
     'model' : 'erudit' ,
-    'function' : 'getAuteurs'
+    'function' : 'getAuteursList'
   }
   let $function := synopsx.models.synopsx:getModelFunction($queryParams)
   let $data := fn:function-lookup($function, 1)($queryParams)
