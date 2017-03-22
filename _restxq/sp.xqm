@@ -5,8 +5,9 @@ module namespace sp.sp = 'sp.sp' ;
  : This module is a RESTXQ for Sens-Public
  :
  : @author emchateau (UdeM)
- : @since 2016-12-06 
- : @version 0.1
+ : @since 2016-12-06  
+ : @date 2017-03-22
+ : @version 0.2
  :
  : This module uses SynopsX publication framework 
  : see https://github.com/synopsx
@@ -48,9 +49,6 @@ function index() {
  :)
 declare 
   %restxq:path('/sp/home')
-  %rest:produces('text/html')
-  %output:method('html')
-  %output:html-version('5.0')
 function blogHome() {
   let $queryParams := map {
     'project' : 'sp',
@@ -65,7 +63,8 @@ function blogHome() {
     'pattern' : 'pattern.xhtml',
     'xquery' : 'erudit2html'
     }
-    return sp.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams)
+    (: return sp.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams):)
+    return $data
   }; 
  
 (:~ 
@@ -326,7 +325,20 @@ function autheurById($auteurId) {
 
 
 
-
+(:~
+ : fonction ressource pour la page d’accueil
+ :
+ : @return une représentation html de la page d’accueil
+ :)
+declare 
+  %restxq:path('/sp/toto')
+  %rest:produces('text/html')
+  %output:method('html')
+  %output:html-version('5.0')
+function toto() {
+  for $titre in fn:distinct-values(db:open('gdp')//*:title)
+  return <h1>{$titre}</h1>
+};
 
 
 
