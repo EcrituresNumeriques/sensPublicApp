@@ -83,7 +83,7 @@ function articleById($articleId as xs:string) {
     'dbName' : 'sp',
     'model' : 'erudit',
     'function' : 'getArticleById',
-    'articleId' : {$articleId}
+    'articleId' : $articleId
   }
   let $function := synopsx.models.synopsx:getModelFunction($queryParams)
   let $data := fn:function-lookup($function, 1)($queryParams)
@@ -112,7 +112,7 @@ function articleByDate($date) {
     'dbName' : 'sp',
     'model' : 'erudit' ,
     'function' : 'getArticlesByDate',
-    'date' : '{$date}'
+    'date' : $date
   }
   let $function := synopsx.models.synopsx:getModelFunction($queryParams)
   let $data := fn:function-lookup($function, 1)($queryParams)
