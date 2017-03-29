@@ -2,7 +2,7 @@ xquery version '3.0' ;
 module namespace sp.mappings.erudit2html = 'sp.mappings.erudit2json' ;
 
 (:~
- : This module is a erudit to html function library for SynopsX
+ : This module is a erudit to json function library for SynopsX
  :
  : @version 2.0 (Constantia edition)
  : @since 2016-12-08 

@@ -54,9 +54,19 @@ declare function getArticles($queryParams as map(*)) as map(*) {
 
 
 declare function getArticleById($queryParams as map(*)) as map(*) {
-  let $articles := synopsx.models.synopsx:getDb($queryParams)
-  return map{
-    '' : ''
+  let $articleId := map:get($queryParams, 'articleId')
+  let $article := synopsx.models.synopsx:getDb($queryParams)//erudit:article[admin/revue[@id="{$articleId}"]]
+  let $meta := map {
+    'title' : 'Article n.{$articleId}'
+    }
+  let $content := map {
+    'title' : $article//erudit:liminaire/erudit:grtitre/erudit:titre,
+    'authors' : $article//erudit:liminaire/erudit:grauteur,
+    'article' : $article
+  }
+  return map {
+    'meta'    : $meta,
+    'content' : $content
   }
 };
 

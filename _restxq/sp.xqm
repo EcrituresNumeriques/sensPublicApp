@@ -81,17 +81,20 @@ function articleById($articleId as xs:string) {
   let $queryParams := map {
     'project' : 'sp',
     'dbName' : 'sp',
-    'model' : 'erudit' ,
-    'function' : 'getArticleById'
+    'model' : 'erudit',
+    'function' : 'getArticleById',
+    'articleId' : {$articleId}
   }
   let $function := synopsx.models.synopsx:getModelFunction($queryParams)
   let $data := fn:function-lookup($function, 1)($queryParams)
   let $outputParams := map {
     'layout' : 'layout.xhtml',
     'pattern' : 'pattern.xhtml',
-    'xquery' : 'erudit2html'
+    'jsonFormat' : 'jsonml'
+(:    'xquery' : 'erudit2html':)
   }
-  return synopsx.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams)
+  (:  return synopsx.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams):)
+  return sp.mappings.erudit2json:wrapper($queryParams, $data, $outputParams)
 };
 
 (:~ 
