@@ -111,14 +111,16 @@ function articleByDate($date) {
     'project' : 'sp',
     'dbName' : 'sp',
     'model' : 'erudit' ,
-    'function' : 'getArticlesByDate'
+    'function' : 'getArticlesByDate',
+    'date' : '{$date}'
   }
   let $function := synopsx.models.synopsx:getModelFunction($queryParams)
   let $data := fn:function-lookup($function, 1)($queryParams)
   let $outputParams := map {
     'layout' : 'layout.xhtml',
     'pattern' : 'pattern.xhtml',
-    'xquery' : 'erudit2html'
+    'jsonFormat' : 'jsonml'
+(:    'xquery' : 'erudit2html':)
   }
   return synopsx.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams)
 };

@@ -38,7 +38,7 @@ declare default function namespace 'sp.models.erudit' ;
 declare function getArticles($queryParams as map(*)) as map(*) {
   let $articles := synopsx.models.synopsx:getDb($queryParams)//erudit:article
   let $meta := map{
-    'title' : 'Liste d’articles', 
+    'title' : 'Liste de tous les articles', 
     'keywords' : $articles//erudit:liminaire/erudit:grmotcle/erudit:motcle/text()
     }
   let $content := for $article in $articles return map {
@@ -57,7 +57,8 @@ declare function getArticleById($queryParams as map(*)) as map(*) {
   let $articleId := map:get($queryParams, 'articleId')
   let $article := synopsx.models.synopsx:getDb($queryParams)//erudit:article[admin/revue[@id="{$articleId}"]]
   let $meta := map {
-    'title' : 'Article n.{$articleId}'
+    'title' : 'Article n.{$articleId}' 
+    'keywords' : $articles//erudit:liminaire/erudit:grmotcle/erudit:motcle/text()
     }
   let $content := map {
     'title' : $article//erudit:liminaire/erudit:grtitre/erudit:titre,
@@ -71,10 +72,21 @@ declare function getArticleById($queryParams as map(*)) as map(*) {
 };
 
 declare function getArticlesByDate($queryParams as map(*)) as map(*) {
-  let $articles := synopsx.models.synopsx:getDb($queryParams)
-  return map{
-    '' : ''
-  }
+  let $date := map:get($queryParams, 'date')
+  let $articles := synopsx.models.synopsx:getDb($queryParams)//erudit:article[admin/numero/pubnum/date[@typedate="publication"][text()="{$date}"]
+  let $meta := map {
+    'title' : 'Liste des articles datés du {$date}' 
+    'keywords' : $articles//erudit:liminaire/erudit:grmotcle/erudit:motcle/text()
+    }  
+  let $content := for $article in $articles return map {
+    'title' : $article//erudit:liminaire/erudit:grtitre/erudit:titre,
+    'authors' : $article//erudit:liminaire/erudit:grauteur,
+    'article' : $article
+    }
+  return  map{
+    'meta'    : $meta,
+    'content' : $content
+    }
 };
 
 declare function getArticlesByType($queryParams as map(*)) as map(*) {
