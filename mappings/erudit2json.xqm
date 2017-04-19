@@ -31,6 +31,37 @@ declare default function namespace 'sp.mappings.erudit2json' ;
 declare function wrapper($queryParams as map(*), $data as map(*), $outputParams as map(*) ) {
   let $jsonFormat := map{
     'format' : $outputParams('jsonFormat')
-  } 
-  return json:serialize($data, $jsonFormat)
+  }
+  let $meta := map:get($data, 'meta')
+  let $content := map:get($data, 'content')
+  
+
+
+  (: for $article in $content :)
+  return json:serialize($meta, $jsonFormat)
   };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

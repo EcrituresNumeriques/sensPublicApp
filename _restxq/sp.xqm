@@ -51,6 +51,7 @@ function index() {
  :)
 declare 
   %restxq:path('/sp/home')
+  %output:method('json')
 function blogHome() {
   let $queryParams := map {
     'project' : 'sp',
@@ -66,7 +67,8 @@ function blogHome() {
     'jsonFormat' : 'jsonml'
     }
     (: return sp.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams):)
-    return sp.mappings.erudit2json:wrapper($queryParams, $data, $outputParams)
+    (: return sp.mappings.erudit2json:wrapper($queryParams, $data, $outputParams) :)
+    return $data
   }; 
  
 (:~ 
@@ -77,6 +79,7 @@ function blogHome() {
  :)
 declare 
   %restxq:path('/sp/articles/{$articleId}')
+  %output:method('json')
 function articleById($articleId as xs:string) {
   let $queryParams := map {
     'project' : 'sp',
@@ -93,8 +96,9 @@ function articleById($articleId as xs:string) {
     'jsonFormat' : 'jsonml'
 (:    'xquery' : 'erudit2html':)
   }
+  return $data
   (:  return synopsx.mappings.htmlWrapping:wrapper($queryParams, $data, $outputParams):)
-  return sp.mappings.erudit2json:wrapper($queryParams, $data, $outputParams)
+  (: return sp.mappings.erudit2json:wrapper($queryParams, $data, $outputParams) :)
 };
 
 (:~ 
@@ -105,7 +109,7 @@ function articleById($articleId as xs:string) {
  : @discuss le nb d’articles ou l’ordre de tri (titre, auteur, date) doivent-ils être traités en paramètres ?
  :)
 declare 
-  %restxq:path('/sp/articles/{$date}')
+  %restxq:path('/sp/articles/date/{$date}')
 function articleByDate($date) {
   let $queryParams := map {
     'project' : 'sp',
