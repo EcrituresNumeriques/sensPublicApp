@@ -1,19 +1,40 @@
-
-<!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Intention](#intention)
-- [Axe 1 : Lire](#axe-1-lire)
-- [Axe 2 : Explorer](#axe-2-explorer)
-- [Axe 3 : Converser / discuter / critiquer](#axe-3-converser-discuter-critiquer)
-- [Axe 4 : Collectionner](#axe-4-collectionner)
-- [Axe 5 : Connecter](#axe-5-connecter)
+	- [Axe 1 : Lire](#axe-1-lire)
+	- [Axe 2 : Explorer](#axe-2-explorer)
+	- [Axe 3 : Converser / discuter / critiquer](#axe-3-converser-discuter-critiquer)
+	- [Axe 4 : Collectionner](#axe-4-collectionner)
+	- [Axe 5 : Connecter](#axe-5-connecter)
+- [Un site à deux entrées](#un-site-deux-entres)
+- [Les différents objets du site](#les-diffrents-objets-du-site)
+	- [Disposition](#disposition)
+	- [Définitions](#dfinitions)
 - [Spécifications](#spcifications)
+	- [Principe pour l'inter-connexion](#principe-pour-linter-connexion)
 - [Meta-navigation](#meta-navigation)
+	- [Institutionnel](#institutionnel)
+	- [Types de contenu](#types-de-contenu)
+	- [Thématiques](#thmatiques)
+	- [Classes de mots-clés dans SPIP](#classes-de-mots-cls-dans-spip)
+	- [idRubriques](#idrubriques)
 - [HOME](#home)
 - [Pages](#pages)
+	- [Page article](#page-article)
+	- [Page essai](#page-essai)
+	- [](#)
+	- [Page auteur](#page-auteur)
+	- [Page meta](#page-meta)
+	- [Page Recherche](#page-recherche)
+	- [Page Résultats de recherche](#page-rsultats-de-recherche)
+	- [Page mot-clés thématique (voir mots-4.html)](#page-mot-cls-thmatique-voir-mots-4html)
+	- [Page mot-clés (voir mots.html)](#page-mot-cls-voir-motshtml)
+	- [Page Tous les auteurs](#page-tous-les-auteurs)
+	- [Flux RSS](#flux-rss)
+	- [Page plan du site](#page-plan-du-site)
+	- [Pages Rubrique](#pages-rubrique)
 
 <!-- /TOC -->
-
 
 # Cahiers des charges Sens Public (revue scientifique en ligne)
 
@@ -31,10 +52,10 @@ Le site de la revue doit se déployer selon 5 axes :
 
 Les 5 axes fonctionnent ensemble et sont interdépendants.
 
-## Axe 1 : Lire
+### Axe 1 : Lire
 Le premier axe «Lire» repose sur les textes eux-mêmes. Il consiste à rendre le corpus des articles de la revue consultable sous différents formats. Les articles seront stockés au format XML, exposés avec leurs métadonnées par le biais du framework Synopsx, permettant de construire une API sur un corpus de ressources XML.
 
-## Axe 2 : Explorer
+### Axe 2 : Explorer
 Le second axe «Explorer» repose sur les métadonnées des ressources, également présentes dans les XML des articles. Il s'agit de proposer des navigations possibles, au sein du corpus et vers l'extérieur, selon plusieurs parcours :
 1. la méta-navigation de la revue :
   * les types de contenus: essais, chroniques, dossiers, etc. voir [Types de contenus](#types-de-contenu))
@@ -45,7 +66,7 @@ Le second axe «Explorer» repose sur les métadonnées des ressources, égaleme
 3. des rebonds externes en exploitant la richesse sémantique des articles liée à diverses autorités. Ces éléments doivent permettre d'effectuer des requêtes précises dans des moteurs spécialisés, notamment rechercheisidore.fr.
 4. des rebonds internes à travers les annotations (voir axe 3), les collections (voir axe 4) et les connexions (voir axe 5)
 
-## Axe 3 : Converser / discuter / critiquer
+### Axe 3 : Converser / discuter / critiquer
 Le troisième axe «Converser» se base sur l'outil d'annotation Hypothes.is[^hypotesis], lui-même basé sur la librairie Annotator.js. Outre un accès ergonomique et intégré de l'outil d'annotation au fil de la lecture d'un texte, nous souhaitons pouvoir renverser le paradigme de navigation de la revue scientifique, basé traditionnellement sur les articles, en proposant comme point d'entrée principal la conversation. L'API d'Hypothes.is nous permet en effet d'exposer les annotations avec toutes leurs métadonnées (fragment et URI de la source annotée, auteur de l'annotation, mots-clé, commentaire, date/heure, etc.).
 
 Un effort particulier de conception et de présentation de cette conversation doit être apporté. Il faut prévoir à la fois une intégration fine et ergonomique des textes et de leur conversation, et à la fois la possibilité de changer de point de vue et d'adopter celui de la conversation. De cette manière, la conversation est susceptible de ne pas être accessoire aux textes, mais de devenir le point d'accroche de la communauté de lecteurs, de développer une pratique critique collective, ainsi que des dialogues inter-culturels (en considérant des passerelles linguistiques). La conversation et les articles peuvent alors constituer les deux faces d'une même pièce.
@@ -74,7 +95,7 @@ Catégories (même pas un premier jet):
 > C'est l'idée de lien. on ouvre à la bibliothèque, à l'archive. Dimension référentielle et associative.  
 > (commentaire Gérard)  
 
-## Axe 4 : Collectionner
+### Axe 4 : Collectionner
 
 Cet axe proposera au lectorat de créer des collections d'élements qui pourront être soit des fragments d'articles, soit des annotations (propres ou appartenant à d'autres utilisateurs). Cet axe fait se croiser deux contributions théoriques, celle d'_anthologie_ de Milad Doueihi et celle de _cristal de connaissance_, _«crystal of knowledge»_ de JC. Guédon[^guedon].
 
@@ -85,12 +106,108 @@ Si la collection ne relève pas de la production d'un texte nouveau, elle relèv
 Une collection publique revient à un acte de publication par lequel le lecteur se fait éditeur de fragments en proposant un chemin de lecture propre.
 
 
-## Axe 5 : Connecter
+### Axe 5 : Connecter
 Le quatrième axe «Connecter» consiste à favoriser la création d'un espace public en favorisant les connexions entre auteurs et lecteurs d'une part, mais aussi au sein de la communauté de lecteurs, et par extension avec les personnes impliquées indirectement (par voie bibliographique) dans les articles.
 
 Cet axe est donc une condition de possibilité de l'axe «Converser» car préalablement à la discussion scientifique, il notifie les uns et les autres des prises de position, des emprunts ou encore des citations, il suscite des intérêts et permet de les partager.
 
 Cet axe repose à nouveau sur la richesse sémantique des métadonnées de l'article (ou des annotations), par exemple de la bibliographie, permettant d'identifier des individus et d'effectuer des requêtes sur différents services (Orcid, Zotero, Twitter, GG Scholar), et finalement de générer semi-automatiquement des notifications aux différents acteurs en présence (auteur de l'article, auteurs cités, lecteurs).
+
+## Un site à deux entrées
+
+Ces cinq axes définissent les grands principes de fonctionnement du site. Ces principes auront valeur de matrice dispositive, dont un des enjeux majeurs reste l'éditorialisation du social et son articulation avec le documentaire. Nous explorons la piste d'un site à deux entrées, accompagnant ainsi deux pratiques existantes et complémentaires de consultation et de participation :
+
+1. 1 entrée documentaire, selon une organisation classique centrée sur l'article agencé en dossiers et rubriques.
+2. 1 entrée sociale et conversationnelle, agencée autour de problématiques soulevées par la revue.
+
+Pour nous aider à visualiser ces deux modalités de la revue, on peut les penser comme deux projections d'un même ensemble de contenus (fragments, contributions, documents, personnes), l'un mettant l'accent sur les échanges sociaux, et l'autre sur les productions documentaires.
+
+La notion de «cristal de connaissance», [telle que discutée lors de notre entretien avec Jean-Claude Guédon](http://nicolassauret.net/carnet/2017/04/12/entretien-avec-jean-claude-guedon-on-crystal-of-knowledge/), nous aide ici à concevoir comme la partie sociale peut-être éditorialisée.
+
+
+## Les différents objets du site
+
+### Disposition
+
+Les deux schémas suivants sont à titre indicatif et présentent deux scénarios :
+* un article tel qu'il sera accessible dans l'entrée documentaire, et les objets directement associés
+* un cristal tel qu'il sera accessible dans l'entrée conversationnelle, les objets directement associés, et les objets agrégés.
+
+![Scénario Article](./SP_scenarioArticle.png)
+
+_Scénario Article_
+
+![Scénario Cristal](./SP_scenarioCristal.png)
+
+_Scénario Cristal_
+
+Voir la spécification succincte des différents objets [ci-dessous][#dfinitions]
+
+### Définitions
+
+**Article**
+
+Un article est l'élément documentaire de base, sur lequel repose la revue d'un point de vue institutionnelle. Il est caractérisé de manière classique par un titre, un résumé, des mots-clés, un corps de texte, des notes de bas de page, une bibliographie, un auteur, etc, ainsi que par un certain nombres de métadonnées d'ordre documentaire ou bibliothéconomique (rubrique, dossier, etc.). L'article pourra enrichi par un balisage sémantique des entités nommées, de l'identification de fragments clés, etc. A partir de ces différents éléments, pourront être inférés des enrichissements connexes susceptibles d'enrichir le réseau de documents et de personnes : les auteurs cités, des documents connexes internes (Sens Public) et/ou externe (le web).
+
+**Annotation**
+
+Une annotation est généralement liée à un document. Elle pourra cependant être liée spécifiquement à un _cristal_ dans le cadre d'une discussion "libre" sur la problématique du-dit cristal. On distingue alors les "annotations d'article" et les "annotations de cristal". Elle se caractérise par :
+
+  * un lien à la source,
+  * une citation du document qui vient constituer un fragment d'article
+  * un commentaire critique ou informationnel de l'annotateur
+  * des mots-clés
+  * un contributeur (l'annotateur ou l'auteur de l'annotation)
+
+**Cristal**
+
+Le cristal doit être pensé comme la cristallisation de fragments autour d'une problématique donnée, qu'elle soit identifiée par l'équipe éditoriale ou par la communauté.
+Un cristal est l'aggrégation d'un ensemble de fragments : annotations de cristal (constituant le.s fil.s de discussion), annotations d'article, articles, fragments de document, ressources externes, participants (contributeurs).
+La dimension temporelle du flux de la discussion reste structurante, mais s'articule avec une dimension spatiale, celle de l'agencement des différents fragments du cristal. Il est donc le résultat d'une éditorialisation à la fois :
+
+1. éditoriale : sélection de mots-clés, paramétrage de l'algorithme, mise en avant d'éléments pertinents (fils de discussion)
+2. communautaire : contributions de contenus (ressources et fragments), vote/classement des différents fragments.
+3. algorithmique : extraction, classement et agencement des différents fragments (requêtes API).
+
+Il se caractérise par :
+
+  * un titre
+  * une description succincte : problématique soulevée
+  * des mots-clés
+  * l'agrégation de fragments, et en particulier :
+    * fil.s de discussion.s, composé des annotations directement liées au cristal
+    * annotation.s d'article et fil.s de discussion associé.s
+    * articles et fragments d'article
+    * ressources externes
+
+**Auteur**
+
+Un auteur est l'auteur d'un article, et par extension tout auteur cité en bibliographie des articles. Il se caractérise par un nom et un prénom, et un ou plusieurs identifiants vers des autorités (Orcid, idHal, Viaf, Foaf, Isni, etc.).
+
+L'auteur d'article est directement engagé dans les discussions sur l'article. Une page dédiée présente l'auteur, ses articles SP, articles externes, et contributions dans la discussion.
+
+**Auteur cité**
+
+Un auteur cité est un auteur cité en bibliographie des articles. Il se caractérise par un nom et un prénom, et un ou plusieurs identifiants vers des autorités (Orcid, idHal, Viaf, Foaf, Isni, etc.).
+L'auteur cité pourra être notifié et invité à participer à la discussion.
+
+Plusieurs possibilités :
+1. une page dédiée présente l'auteur, ses articles SP, articles externes, et contributions dans la discussion.
+2. un lien vers la page Orcid publique accompagne le nom de l'auteur en bibliographie.
+3. sur action du lecteur, un encadré récupère et affiche les principales informations liées à l'auteur (via API Isidore ou Orcid).
+
+**Contributeur**
+
+Un contributeur désigne tout participant ayant pris part aux discussions sur la plateforme SP. Il peut être un auteur.
+Modalités d'identification : Hypothes.is ? Besoin d'un service tout à fait transparent sur l'utilisation des données.
+
+**Ressource externe**
+
+Une ressource externe est tout élément apporté soit par une contribution de type annotation _(nécessité d'une caractérisation des annotations ?)_, soit par extraction via des services dédiés (Isidore par exemple).
+
+**Rubrique**
+
+La rubrique est utilisée dans l'organisation éditoriale de l'entrée documentaire de la plateforme.
 
 
 ---
@@ -292,4 +409,4 @@ Ces pages sont à repenser.
 
   * les identifiants (rubrique, article, etc)
   * le marquage sémantique à l'intérieur de para//marquage : besoin de créer un attribut
-  * identifiant orchid
+  * identifiant orcid
