@@ -20,19 +20,6 @@
 	- [idRubriques](#idrubriques)
 - [HOME](#home)
 - [Pages](#pages)
-	- [Page article](#page-article)
-	- [Page essai](#page-essai)
-	- [](#)
-	- [Page auteur](#page-auteur)
-	- [Page meta](#page-meta)
-	- [Page Recherche](#page-recherche)
-	- [Page Résultats de recherche](#page-rsultats-de-recherche)
-	- [Page mot-clés thématique (voir mots-4.html)](#page-mot-cls-thmatique-voir-mots-4html)
-	- [Page mot-clés (voir mots.html)](#page-mot-cls-voir-motshtml)
-	- [Page Tous les auteurs](#page-tous-les-auteurs)
-	- [Flux RSS](#flux-rss)
-	- [Page plan du site](#page-plan-du-site)
-	- [Pages Rubrique](#pages-rubrique)
 
 <!-- /TOC -->
 
@@ -46,7 +33,7 @@ Le site de la revue doit se déployer selon 5 axes :
 
   1. Lire
   2. Explorer
-  3. Discuter
+  3. Converser
   4. Collectionner
   5. Connecter
 
@@ -73,7 +60,7 @@ Un effort particulier de conception et de présentation de cette conversation do
 
 [^hypotesis]: Il s'agit d'un outil d'annotation intra-textuel produisant des annotations indexées c'est-à-dire possédant une URI propre et requêtable via une API dédiée.
 
-Un des objectifs de cet axe «Discuter» est de susciter une démarche critique dans les pratiques d'annotations. Une piste à explorer pourrait être de catégoriser[^categoriser] les annotations et la conversation en général. Mais la dynamique critique, en tant que démarche d'appropriation, pourrait également se manifester dans l'axe «Collectionner».
+Un des objectifs de cet axe «Converser» est de susciter une démarche critique dans les pratiques d'annotations. Une piste à explorer pourrait être de catégoriser[^categoriser] les annotations et la conversation en général. Mais la dynamique critique, en tant que démarche d'appropriation, pourrait également se manifester dans l'axe «Collectionner».
 
 [^categoriser]: sur le mode de [polemictweet](http://polemictweet.com/) où certains tags ou attributs de l'annotation appartiennent à un vocabulaire contrôlé permettant de qualifier la valeur critique d'une annotation.
 
@@ -107,7 +94,7 @@ Une collection publique revient à un acte de publication par lequel le lecteur 
 
 
 ### Axe 5 : Connecter
-Le quatrième axe «Connecter» consiste à favoriser la création d'un espace public en favorisant les connexions entre auteurs et lecteurs d'une part, mais aussi au sein de la communauté de lecteurs, et par extension avec les personnes impliquées indirectement (par voie bibliographique) dans les articles.
+Le cinquième axe «Connecter» tend vers la création d'un espace conversationnel en favorisant les connexions entre auteurs et lecteurs d'une part, mais aussi au sein de la communauté de lecteurs, et par extension avec les personnes impliquées indirectement (par voie bibliographique) dans les articles.
 
 Cet axe est donc une condition de possibilité de l'axe «Converser» car préalablement à la discussion scientifique, il notifie les uns et les autres des prises de position, des emprunts ou encore des citations, il suscite des intérêts et permet de les partager.
 
