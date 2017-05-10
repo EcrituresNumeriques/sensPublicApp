@@ -109,21 +109,23 @@ declare
 };
 
 
-
+(:recupère la liste des titres des articles:)
 declare
-  %rest:path("/sph/titles/{$idTitle}")
+  %rest:path("/sph/titles")
   %rest:GET
-  function page:getTitles($idTitle as xs:string)
+  function page:getTitles()
     as element(response)
 {
     (: ouvre la base XML:)
     let $sph := db:open("sph")/html
     
-    for $title in $sph/head/meta[@name="DC.title"]
-    return   
-      <response>
+   
+      return
+      <response>{
+       for $title in $sph/head/meta[@name="DC.title"]
+       return 
         <title xml:id="pouet">{fn:data($title/@content)}</title>        
-      </response>
+   } </response>
 };
 
 
