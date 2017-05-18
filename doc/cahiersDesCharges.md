@@ -109,7 +109,7 @@ Ces cinq axes définissent les grands principes de fonctionnement du site. Ces p
 
 Pour nous aider à visualiser ces deux modalités de la revue, on peut les penser comme deux projections d'un même ensemble de contenus (fragments, contributions, documents, personnes), l'un mettant l'accent sur les échanges sociaux, et l'autre sur les productions documentaires.
 
-La notion de «cristal de connaissance», [telle que discutée lors de notre entretien avec Jean-Claude Guédon](http://nicolassauret.net/carnet/2017/04/12/entretien-avec-jean-claude-guedon-on-crystal-of-knowledge/), nous aide ici à concevoir comme la partie sociale peut-être éditorialisée.
+La notion de «cristal de connaissance», [telle que discutée lors de notre entretien avec Jean-Claude Guédon](http://nicolassauret.net/carnet/2017/04/12/entretien-avec-jean-claude-guedon-on-crystal-of-knowledge/), nous aide ici à concevoir comment la partie sociale peut-être éditorialisée.
 
 
 ## Les différents objets du site
@@ -135,6 +135,8 @@ Voir la spécification succincte des différents objets [ci-dessous][#dfinitions
 **Article**
 
 Un article est l'élément documentaire de base, sur lequel repose la revue d'un point de vue institutionnelle. Il est caractérisé de manière classique par un titre, un résumé, des mots-clés, un corps de texte, des notes de bas de page, une bibliographie, un auteur, etc, ainsi que par un certain nombres de métadonnées d'ordre documentaire ou bibliothéconomique (rubrique, dossier, etc.). L'article pourra enrichi par un balisage sémantique des entités nommées, de l'identification de fragments clés, etc. A partir de ces différents éléments, pourront être inférés des enrichissements connexes susceptibles d'enrichir le réseau de documents et de personnes : les auteurs cités, des documents connexes internes (Sens Public) et/ou externe (le web).
+
+
 
 **Annotation**
 
@@ -298,7 +300,26 @@ voir sur Github : https://github.com/EcrituresNumeriques/sensPublicApp/blob/mast
 
 ## HOME
 
+à retrouver sur la home :
+
+* Les conversations
+* Type d'article : essais, créations, entretiens, lectures, chroniques
+* Les Disciplines (les 5 thématiques)
+* les familles de mots
+* archives ? pour retrouver l'ancienne structure documentaire :
+	* les dossiers, les actes de colloques, années
+* les dernières publications (exemple 2 articles)
+
 ## Pages
+
+### Page Type d'article "essai"
+
+* panorama de la revue : comptabilisation/visualisation
+* recherche autocomplétion + facettes
+
+### Pages mot-clés
+### Pages famille de mots-clés
+### Page Conversation
 
 ### Page article
 
