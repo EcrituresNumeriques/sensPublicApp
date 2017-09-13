@@ -18,10 +18,14 @@ Un article appartient de manière exclusive à l'une de ces trois catégories de
 
 Chaque article est caractérisé par un et un seul type d'article.
 
-1. essais
-2. chroniques
-3. créations
-4. lectures
+1. essai. 
+   La catégorie "essai" n'est pas exclusive. Ca veut dire que toute chronique, création, lecture peut être un essai.
+ critère académique (longueur, référence bibliographique, évaluation par les pairs).
+   actuellement sur SPIP, il y a des chroniques ou lectures qui ont un mot-clé "essai", qui permet à ces contenus d'être récupérés comme essai sur SPIP.
+2. chronique
+3. création
+4. lecture
+5. entretien
 
 **Taxonomie de mots-clés :**
 
